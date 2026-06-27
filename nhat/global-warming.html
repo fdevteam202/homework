@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Interactive Lesson: Global Issues</title>
+    <style>
+        /* Design System Variables */
+        :root {
+            --primary: #2E5C42; /* Forest Green */
+            --secondary: #4A7C59; /* Moss Green */
+            --accent: #88D49E; /* Mint */
+            --bg-page: #F7F5F0; /* Sand */
+            --white: #FFFFFF;
+            --text-main: #333333;
+            --text-light: #666666;
+            --blue: #4A90E2; /* Info */
+            --amber: #F5A623; /* Warning/Highlight */
+            --red: #E74C3C; /* Mistakes */
+            --green-light: #E8F5E9;
+            --red-light: #FDEDEC;
+            
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-pill: 50px;
+            
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.03);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.05);
+            
+            --font-display: 'Georgia', serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 32px;
+            --space-xl: 64px;
+        }
+
+        /* Global Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: var(--space-lg) var(--space-md);
+        }
+
+        section {
+            margin-bottom: var(--space-xl);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            color: var(--primary);
+            margin-bottom: var(--space-md);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: var(--space-sm);
+            display: inline-block;
+        }
+
+        p {
+            margin-bottom: var(--space-md);
+        }
+
+        .text-subtle {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl) var(--space-lg);
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            margin-bottom: var(--space-xl);
+            border-top: 8px solid var(--primary);
+        }
+
+        .pill-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--space-sm);
+            margin-top: var(--space-lg);
+        }
+
+        .pill {
+            background-color: var(--green-light);
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: var(--radius-pill);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-md);
+            margin-bottom: var(--space-md);
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+        }
+
+        /* Part Badges */
+        .part-badge {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 4px 12px;
+            border-radius: var(--radius-md);
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: var(--space-md);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            font-family: var(--font-body);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--green-light);
+        }
+
+        .btn-danger {
+            background-color: transparent;
+            border: 2px solid var(--red);
+            color: var(--red);
+        }
+
+        .btn-danger:hover {
+            background-color: var(--red-light);
+        }
+
+        /* Vocabulary List */
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-md);
+        }
+        
+        .vocab-card {
+            border-left: 4px solid var(--accent);
+        }
+
+        .vocab-word {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .vocab-ipa {
+            color: var(--text-light);
+            font-family: monospace;
+            margin-left: 8px;
+        }
+
+        .vocab-example {
+            background-color: var(--green-light);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-md);
+            margin-top: var(--space-sm);
+            font-style: italic;
+        }
+
+        /* Drag & Drop Exercise */
+        .dnd-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            margin-top: var(--space-md);
+        }
+
+        @media (max-width: 600px) {
+            .dnd-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .draggable-items {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .draggable {
+            background-color: var(--white);
+            border: 2px solid var(--secondary);
+            color: var(--primary);
+            padding: 12px;
+            border-radius: var(--radius-md);
+            cursor: grab;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .draggable:active {
+            cursor: grabbing;
+        }
+        
+        .draggable.used {
+            opacity: 0.5;
+            pointer-events: none;
+            border-style: dashed;
+        }
+
+        .dropzone-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .dropzone-item {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            padding: 12px;
+            border: 2px dashed #ccc;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-height: 70px;
+        }
+        
+        .dropzone-item.drag-over {
+            border-color: var(--primary);
+            background-color: var(--green-light);
+        }
+
+        .dropzone-target {
+            flex: 0 0 140px;
+            height: 40px;
+            border-radius: var(--radius-md);
+            background-color: var(--bg-page);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--primary);
+            border: 1px solid #ddd;
+        }
+        
+        .dropzone-target.filled {
+            background-color: var(--accent);
+            color: var(--primary);
+            border: none;
+        }
+        
+        .dropzone-text {
+            flex: 1;
+            font-size: 0.9rem;
+        }
+
+        /* Pronunciation */
+        .stress-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-md);
+        }
+        
+        @media (max-width: 600px) {
+            .stress-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .stress-word {
+            text-align: center;
+        }
+        .stress-highlight {
+            color: var(--primary);
+            font-weight: 900;
+            text-decoration: underline;
+            text-decoration-color: var(--amber);
+            text-decoration-thickness: 3px;
+        }
+
+        /* Translation Review */
+        .translation-box {
+            margin-bottom: var(--space-md);
+        }
+        .reveal-btn {
+            margin-top: var(--space-sm);
+        }
+        .english-answer {
+            display: none;
+            margin-top: var(--space-sm);
+            padding: var(--space-sm);
+            background-color: var(--green-light);
+            border-left: 4px solid var(--primary);
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        /* Grammar Box */
+        .grammar-box {
+            background-color: rgba(245, 166, 35, 0.1);
+            border-left: 4px solid var(--amber);
+            padding: var(--space-md);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin-top: var(--space-lg);
+        }
+
+        /* Forms & Interactive */
+        .form-group {
+            margin-bottom: var(--space-md);
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 150px;
+            padding: var(--space-md);
+            border: 2px solid #ddd;
+            border-radius: var(--radius-md);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            resize: vertical;
+            transition: border-color 0.2s;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .word-count {
+            text-align: right;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        /* Checklists */
+        .checklist {
+            list-style: none;
+        }
+        
+        .checklist li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        input[type="checkbox"], input[type="radio"] {
+            accent-color: var(--primary);
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        /* Feedback UI */
+        .feedback {
+            display: none;
+            padding: 12px;
+            border-radius: var(--radius-md);
+            margin-top: 12px;
+            font-weight: 600;
+        }
+        
+        .feedback.success {
+            display: block;
+            background-color: var(--green-light);
+            color: var(--primary);
+            border: 1px solid var(--accent);
+        }
+        
+        .feedback.error {
+            display: block;
+            background-color: var(--red-light);
+            color: var(--red);
+            border: 1px solid #F1948A;
+        }
+        
+        /* Audio Mock */
+        .audio-mock {
+            background: var(--blue);
+            color: white;
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: var(--space-md);
+        }
+        .audio-btn {
+            background: white;
+            color: var(--blue);
+            border: none;
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .transcript {
+            display: none;
+            background: #f0f4f8;
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            font-size: 0.9rem;
+            margin-bottom: var(--space-md);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <span class="text-subtle">Upper-Intermediate English</span>
+        <h1>Global Issues & Solutions</h1>
+        <p class="text-subtle">Develop your vocabulary and speaking skills to discuss pressing world problems clearly and confidently.</p>
+        
+        <div class="pill-container">
+            <span class="pill">⏱️ ~70 mins</span>
+            <span class="pill">📚 Vocabulary</span>
+            <span class="pill">🗣️ Pronunciation</span>
+            <span class="pill">✍️ Speaking</span>
+        </div>
+    </header>
+
+    <!-- PART 1: VOCABULARY -->
+    <section id="part1">
+        <div class="part-badge">Part 1</div>
+        <h2>Vocabulary Focus</h2>
+        <p>Review these key terms used to discuss global problems, then test your understanding.</p>
+        
+        <div class="vocab-grid">
+            <div class="card vocab-card">
+                <div>
+                    <span class="vocab-word">Air Pollution</span>
+                    <span class="vocab-ipa">/eər pəˈluːʃn/</span>
+                </div>
+                <p><strong>Ô nhiễm không khí:</strong> The presence in or introduction into the air of a substance which has harmful or poisonous effects.</p>
+                <div class="vocab-example">"Air pollution in the city has reached alarming levels due to heavy traffic."</div>
+            </div>
+            
+            <div class="card vocab-card">
+                <div>
+                    <span class="vocab-word">Overpopulation</span>
+                    <span class="vocab-ipa">/ˌəʊvəˌpɒpjuˈleɪʃn/</span>
+                </div>
+                <p><strong>Bùng nổ dân số:</strong> The condition of being populated with excessively large numbers.</p>
+                <div class="vocab-example">"Overpopulation puts a severe strain on a country's natural resources."</div>
+            </div>
+
+            <div class="card vocab-card">
+                <div>
+                    <span class="vocab-word">Unemployment</span>
+                    <span class="vocab-ipa">/ˌʌnɪmˈplɔɪmənt/</span>
+                </div>
+                <p><strong>Thất nghiệp:</strong> The state of not having a job while being available for work.</p>
+                <div class="vocab-example">"The closing of the factory led to widespread unemployment in the town."</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Practice: Matching Exercise</h3>
+            <p class="text-subtle">Drag the words on the left into the correct definition slots on the right.</p>
+            
+            <div class="dnd-container">
+                <div class="draggable-items" id="draggable-words">
+                    <div class="draggable" draggable="true" data-id="word1">Unemployment</div>
+                    <div class="draggable" draggable="true" data-id="word2">Global Warming</div>
+                    <div class="draggable" draggable="true" data-id="word3">Housing Shortage</div>
+                    <div class="draggable" draggable="true" data-id="word4">Air Pollution</div>
+                </div>
+                
+                <div class="dropzone-list" id="dropzones">
+                    <div class="dropzone-item" data-answer="word4">
+                        <div class="dropzone-target">Drop here</div>
+                        <div class="dropzone-text">Harmful substances in the atmosphere.</div>
+                    </div>
+                    <div class="dropzone-item" data-answer="word1">
+                        <div class="dropzone-target">Drop here</div>
+                        <div class="dropzone-text">People unable to find jobs.</div>
+                    </div>
+                    <div class="dropzone-item" data-answer="word3">
+                        <div class="dropzone-target">Drop here</div>
+                        <div class="dropzone-text">Not enough homes for the population.</div>
+                    </div>
+                    <div class="dropzone-item" data-answer="word2">
+                        <div class="dropzone-target">Drop here</div>
+                        <div class="dropzone-text">The gradual increase in earth's temperature.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 20px; display: flex; gap: 10px;">
+                <button class="btn btn-primary" onclick="checkMatching()">Check Answers</button>
+                <button class="btn btn-secondary" onclick="resetMatching()">Retry</button>
+            </div>
+            <div id="matching-feedback" class="feedback"></div>
+        </div>
+    </section>
+
+    <!-- PART 2: PRONUNCIATION -->
+    <section id="part2">
+        <div class="part-badge">Part 2</div>
+        <h2>Pronunciation: Noun vs. Verb Stress</h2>
+        <p>Many two-syllable words in English change their stress depending on whether they are a <strong>Noun</strong> or a <strong>Verb</strong>.</p>
+        
+        <div class="grammar-box" style="margin-bottom: var(--space-md); margin-top: 0;">
+            <strong>The Rule:</strong>
+            <ul style="margin-left: 20px; margin-top: 8px;">
+                <li><strong>Noun:</strong> Stress the <em>first</em> syllable.</li>
+                <li><strong>Verb:</strong> Stress the <em>second</em> syllable.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="stress-grid">
+                <div class="stress-word">
+                    <h3>Noun</h3>
+                    <p class="text-subtle">First syllable stressed</p>
+                    <hr style="border: 0; border-top: 1px solid #eee; margin: 10px 0;">
+                    
+                    <p><span class="stress-highlight">RE</span>-cord</p>
+                    <p><em>"She set a new <strong>record</strong> for the high jump."</em></p>
+                    <br>
+                    
+                    <p><span class="stress-highlight">IN</span>-crease</p>
+                    <p><em>"There has been an <strong>increase</strong> in pollution."</em></p>
+                </div>
+                
+                <div class="stress-word" style="border-left: 1px solid #eee;">
+                    <h3>Verb</h3>
+                    <p class="text-subtle">Second syllable stressed</p>
+                    <hr style="border: 0; border-top: 1px solid #eee; margin: 10px 0;">
+                    
+                    <p>re-<span class="stress-highlight">CORD</span></p>
+                    <p><em>"Please <strong>record</strong> this meeting."</em></p>
+                    <br>
+                    
+                    <p>in-<span class="stress-highlight">CREASE</span></p>
+                    <p><em>"Temperatures will <strong>increase</strong> next year."</em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PART 3: READING & TRANSLATION -->
+    <section id="part3">
+        <div class="part-badge">Part 3</div>
+        <h2>Reading & Translation</h2>
+        <p>Translate the following Vietnamese sentences into English using our target grammar structures.</p>
+
+        <div class="grammar-box">
+            <h4>💡 Useful Patterns</h4>
+            <p><strong>There has been an increase in...</strong> (Đã có sự gia tăng trong...)</p>
+            <p><strong>...is a growing problem.</strong> (...là một vấn đề ngày càng tăng.)</p>
+            <p><strong>The government needs to...</strong> (Chính phủ cần phải...)</p>
+        </div>
+        <br>
+
+        <div class="card translation-box">
+            <p><strong>1.</strong> Đã có sự gia tăng trong tình trạng thất nghiệp năm nay.</p>
+            <button class="btn btn-secondary reveal-btn" onclick="toggleAnswer('ans1')">Reveal English Answer</button>
+            <div id="ans1" class="english-answer">There has been an increase in unemployment this year.</div>
+        </div>
+
+        <div class="card translation-box">
+            <p><strong>2.</strong> Ô nhiễm không khí là một vấn đề ngày càng tăng ở các thành phố lớn.</p>
+            <button class="btn btn-secondary reveal-btn" onclick="toggleAnswer('ans2')">Reveal English Answer</button>
+            <div id="ans2" class="english-answer">Air pollution is a growing problem in large cities.</div>
+        </div>
+
+        <div class="card translation-box">
+            <p><strong>3.</strong> Chính phủ cần xây dựng thêm nhiều nhà ở.</p>
+            <button class="btn btn-secondary reveal-btn" onclick="toggleAnswer('ans3')">Reveal English Answer</button>
+            <div id="ans3" class="english-answer">The government needs to build more housing.</div>
+        </div>
+    </section>
+
+    <!-- PART 4: LISTENING -->
+    <section id="part4">
+        <div class="part-badge">Part 4</div>
+        <h2>Listening Comprehension</h2>
+        <p>Listen to a short report on urban challenges and answer the questions below.</p>
+
+        <div class="card">
+            <div class="audio-mock">
+                <button class="audio-btn" onclick="toggleTranscript()">▶</button>
+                <div>
+                    <strong>Track 01: Urban Challenges</strong><br>
+                    <span style="font-size: 0.85rem; opacity: 0.8;">Duration: 0:45</span>
+                </div>
+            </div>
+            
+            <div id="transcript" class="transcript">
+                <em>"Over the last decade, our cities have grown rapidly. While this brings economic growth, it also brings severe challenges. The most pressing issue today is the housing shortage. As thousands move to the city looking for jobs, there simply aren't enough affordable homes. Consequently, families are forced into overcrowded apartments. To solve this, the city council must invest in public housing projects and offer tax incentives to developers who build affordable units."</em>
+            </div>
+
+            <form id="listeningForm">
+                <div class="form-group">
+                    <h4>1. According to the speaker, what is the most pressing issue today?</h4>
+                    <ul class="checklist">
+                        <li><label><input type="radio" name="q1" value="A"> A) Air pollution</label></li>
+                        <li><label><input type="radio" name="q1" value="B"> B) Housing shortage</label></li>
+                        <li><label><input type="radio" name="q1" value="C"> C) Unemployment</label></li>
+                    </ul>
+                </div>
+
+                <div class="form-group">
+                    <h4>2. True or False: The speaker suggests building more luxury apartments.</h4>
+                    <ul class="checklist">
+                        <li><label><input type="radio" name="q2" value="True"> True</label></li>
+                        <li><label><input type="radio" name="q2" value="False"> False</label></li>
+                    </ul>
+                </div>
+                
+                <button type="button" class="btn btn-primary" onclick="checkListening()">Check Answers</button>
+                <div id="listening-feedback" class="feedback"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- PART 5: SPEAKING -->
+    <section id="part5">
+        <div class="part-badge">Part 5</div>
+        <h2>Guided Speaking</h2>
+        <p>Prepare a short speech using the <strong>P.E.R. Framework</strong>.</p>
+
+        <div class="grammar-box" style="margin-top: 0; margin-bottom: 20px;">
+            <h4>The P.E.R. Framework</h4>
+            <ul style="margin-left: 20px;">
+                <li><strong>P - Problem:</strong> Describe the issue clearly.</li>
+                <li><strong>E - Effect:</strong> Explain the negative consequences.</li>
+                <li><strong>R - Resolution:</strong> Suggest a practical solution.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Sample Speech: Air Pollution</h3>
+            <p><strong>[Problem]</strong> One of the biggest issues in my city is air pollution, caused mostly by vehicle emissions.</p>
+            <p><strong>[Effect]</strong> This leads to serious health problems like asthma, and damages the environment.</p>
+            <p><strong>[Resolution]</strong> The government needs to improve public transport to reduce the number of cars on the road.</p>
+        </div>
+
+        <div class="card">
+            <h3>Your Turn</h3>
+            <p>Choose one topic (Garbage, Unemployment, or Housing Shortage) and write your P.E.R. speech below. Then practice speaking it out loud.</p>
+            
+            <textarea id="speaking-input" placeholder="Start typing your speech here..."></textarea>
+            <div class="word-count">Words: <span id="wordCountDisplay">0</span></div>
+            
+            <div style="margin-top: 15px; margin-bottom: 25px;">
+                <button class="btn btn-danger" onclick="clearTextarea()">Clear Text</button>
+            </div>
+
+            <h4>Speaking Checklist</h4>
+            <p class="text-subtle">Check off these items as you practice speaking aloud.</p>
+            <ul class="checklist">
+                <li><label><input type="checkbox"> I clearly stated the <strong>Problem</strong>.</label></li>
+                <li><label><input type="checkbox"> I explained the <strong>Effect</strong>.</label></li>
+                <li><label><input type="checkbox"> I suggested a <strong>Resolution</strong>.</label></li>
+                <li><label><input type="checkbox"> I used vocabulary from Part 1.</label></li>
+                <li><label><input type="checkbox"> I can deliver this without reading word-for-word.</label></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- REFLECTION -->
+    <section id="reflection">
+        <div class="hero" style="background-color: var(--secondary); color: white; border-top: none;">
+            <h2 style="color: white; border-color: rgba(255,255,255,0.3);">Lesson Reflection</h2>
+            <p style="color: rgba(255,255,255,0.9);">Take a moment to assess your understanding of today's lesson.</p>
+            
+            <div class="card" style="color: var(--text-main); text-align: left; margin-top: 20px;">
+                <ul class="checklist">
+                    <li><label><input type="checkbox"> I understand the key vocabulary words.</label></li>
+                    <li><label><input type="checkbox"> I know how noun and verb stress differs.</label></li>
+                    <li><label><input type="checkbox"> I can use the P.E.R framework to structure a speech.</label></li>
+                </ul>
+                <div style="text-align: center; margin-top: 20px;">
+                    <button class="btn btn-primary" onclick="alert('Great job completing the lesson! Keep practicing.')">Complete Lesson</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<script>
+    // --- DRAG & DROP LOGIC (Part 1) ---
+    const draggables = document.querySelectorAll('.draggable');
+    const dropzones = document.querySelectorAll('.dropzone-item');
+    let draggedItem = null;
+
+    draggables.forEach(draggable => {
+        draggable.addEventListener('dragstart', function(e) {
+            draggedItem = this;
+            e.dataTransfer.setData('text/plain', this.dataset.id);
+            setTimeout(() => this.style.opacity = '0.5', 0);
+        });
+
+        draggable.addEventListener('dragend', function() {
+            draggedItem = null;
+            this.style.opacity = '1';
+        });
+    });
+
+    dropzones.forEach(zone => {
+        zone.addEventListener('dragover', function(e) {
+            e.preventDefault(); // Necessary to allow dropping
+            this.classList.add('drag-over');
+        });
+
+        zone.addEventListener('dragleave', function() {
+            this.classList.remove('drag-over');
+        });
+
+        zone.addEventListener('drop', function(e) {
+            e.preventDefault();
+            this.classList.remove('drag-over');
+            
+            const draggedId = e.dataTransfer.getData('text/plain');
+            const draggedElement = document.querySelector(`[data-id="${draggedId}"]`);
+            
+            if (draggedElement) {
+                const targetBox = this.querySelector('.dropzone-target');
+                targetBox.textContent = draggedElement.textContent;
+                targetBox.classList.add('filled');
+                
+                // Save user's answer into dataset
+                this.dataset.userAnswer = draggedId;
+                
+                // Visual feedback on draggable
+                draggedElement.classList.add('used');
+            }
+        });
+    });
+
+    function checkMatching() {
+        let correctCount = 0;
+        let total = dropzones.length;
+        
+        dropzones.forEach(zone => {
+            const correctAnswer = zone.dataset.answer;
+            const userAnswer = zone.dataset.userAnswer;
+            const targetBox = zone.querySelector('.dropzone-target');
+            
+            if (userAnswer === correctAnswer) {
+                correctCount++;
+                targetBox.style.backgroundColor = 'var(--accent)';
+                targetBox.style.color = 'var(--primary)';
+                targetBox.style.border = 'none';
+            } else if (userAnswer) {
+                targetBox.style.backgroundColor = 'var(--red-light)';
+                targetBox.style.color = 'var(--red)';
+                targetBox.style.border = '1px solid var(--red)';
+            }
+        });
+
+        const feedback = document.getElementById('matching-feedback');
+        if (correctCount === total) {
+            feedback.textContent = `Excellent! You got all ${total} correct.`;
+            feedback.className = 'feedback success';
+        } else {
+            feedback.textContent = `You got ${correctCount} out of ${total} correct. Try again!`;
+            feedback.className = 'feedback error';
+        }
+    }
+
+    function resetMatching() {
+        dropzones.forEach(zone => {
+            zone.dataset.userAnswer = "";
+            const targetBox = zone.querySelector('.dropzone-target');
+            targetBox.textContent = "Drop here";
+            targetBox.className = "dropzone-target";
+            targetBox.style = ""; // clear inline styles
+        });
+        
+        draggables.forEach(draggable => {
+            draggable.classList.remove('used');
+        });
+        
+        const feedback = document.getElementById('matching-feedback');
+        feedback.className = 'feedback';
+        feedback.textContent = '';
+    }
+
+    // --- TRANSLATION LOGIC (Part 3) ---
+    function toggleAnswer(id) {
+        const el = document.getElementById(id);
+        if (el.style.display === 'block') {
+            el.style.display = 'none';
+        } else {
+            el.style.display = 'block';
+        }
+    }
+
+    // --- LISTENING LOGIC (Part 4) ---
+    function toggleTranscript() {
+        const trans = document.getElementById('transcript');
+        trans.style.display = trans.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function checkListening() {
+        let score = 0;
+        const q1 = document.querySelector('input[name="q1"]:checked');
+        const q2 = document.querySelector('input[name="q2"]:checked');
+        
+        if (q1 && q1.value === 'B') score++;
+        if (q2 && q2.value === 'False') score++;
+        
+        const feedback = document.getElementById('listening-feedback');
+        if (score === 2) {
+            feedback.textContent = "Perfect! 2/2 correct.";
+            feedback.className = 'feedback success';
+        } else {
+            feedback.textContent = `You scored ${score}/2. Review the transcript and try again.`;
+            feedback.className = 'feedback error';
+        }
+    }
+
+    // --- SPEAKING LOGIC (Part 5) ---
+    const textarea = document.getElementById('speaking-input');
+    const wordCountDisplay = document.getElementById('wordCountDisplay');
+
+    textarea.addEventListener('input', function() {
+        const text = this.value.trim();
+        const words = text ? text.split(/\s+/).length : 0;
+        wordCountDisplay.textContent = words;
+    });
+
+    function clearTextarea() {
+        if(confirm("Are you sure you want to clear your text?")) {
+            textarea.value = '';
+            wordCountDisplay.textContent = '0';
+        }
+    }
+</script>
+
+</body>
+</html>
